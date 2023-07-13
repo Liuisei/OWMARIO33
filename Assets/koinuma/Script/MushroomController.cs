@@ -25,7 +25,8 @@ public class MushroomController : ItemBase
         _rb.velocity = new Vector2(_moveSpeed * _dirX, _rb.velocity.y);
 
         Vector2 start = transform.position;
-        Vector2 end = start + Vector2.right * _dirX * 0.51f;
+        start += Vector2.right * _dirX * 0.509f;
+        Vector2 end = start + Vector2.right * _dirX * 0.01f;
         Debug.DrawLine(start, end);
         if (Physics2D.Linecast(start, end, 1))
         {
