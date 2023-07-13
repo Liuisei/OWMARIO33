@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GoalManager : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("ÉSÅ[Éã");
-
+        if (collision.gameObject.name == "Player")
+        {
+            Debug.Log("ÉSÅ[Éã");
+        }
     }
 }

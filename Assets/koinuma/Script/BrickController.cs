@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickController : MonoBehaviour
+public class BrickController : BlockBase
 {
     [SerializeField] bool _canBreak = true;
+    [SerializeField] Sprite _onHitSprite;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void HitBottom()
     {
         if (_canBreak)
         {
-            Destroy(this.gameObject);
-            collision.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            Destroy(gameObject);
+        }
+        else if (_onHitSprite != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = _onHitSprite;
         }
     }
 }
