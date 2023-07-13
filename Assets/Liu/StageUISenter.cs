@@ -12,18 +12,25 @@ public class StageUISenter : MonoBehaviour
 
     private void Start()
     {
-
-        // DataManagerのイベントとテキストの更新を連携する
-        DataManager.instance.ChangedScore += OnScoreChanged;
-        DataManager.instance.ChangedCoin += OnCoinChanged;
-        DataManager.instance.ChangedMario += OnMarioChanged;
-        // 初期状態でテキストを更新
-        UpdateTexts();
+        Rennkei();
     }
 
 
     private void Rennkei()
     {
+        if(DataManager.instance != null)
+        {
+            DataManager.instance.ChangedScore += OnScoreChanged;
+            DataManager.instance.ChangedCoin += OnCoinChanged;
+            DataManager.instance.ChangedMario += OnMarioChanged;
+            UpdateTexts();
+
+        }
+        else
+        {
+            Invoke("Rennkei", 1);
+        }
+
 
     }
 
