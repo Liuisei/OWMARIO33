@@ -6,7 +6,7 @@ public abstract class BlockBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!_hit)
+        if (!_hit && collision.gameObject.name == "Player")
         {
             HitBottom();
             collision.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
