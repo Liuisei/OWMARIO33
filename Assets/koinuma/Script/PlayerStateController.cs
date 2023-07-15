@@ -26,6 +26,18 @@ public class PlayerStateController : MonoBehaviour
         _playerState = State.Normal;
     }
 
+    public void GetFireFlower()
+    {
+        Vector2 colliderSize = new Vector2(1, 2);
+        _collider.size = colliderSize;
+        if (_playerState != State.Fire)
+        {
+            _sprite.sprite = _fireSprote;
+            _sprite.color = new Color(1, 0.5f, 0); // スプライト設定したら消す
+        }
+        _playerState = State.Fire;
+    }
+
     enum State
     {
         Small,
