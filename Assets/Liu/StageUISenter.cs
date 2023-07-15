@@ -9,6 +9,7 @@ public class StageUISenter : MonoBehaviour
     [SerializeField] TextMeshProUGUI _TMPScore;
     [SerializeField] TextMeshProUGUI _TMPCoin;
     [SerializeField] TextMeshProUGUI _TMPMario;
+    [SerializeField] TextMeshProUGUI _TMPTimer;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class StageUISenter : MonoBehaviour
             DataManager.instance.ChangedScore += OnScoreChanged;
             DataManager.instance.ChangedCoin += OnCoinChanged;
             DataManager.instance.ChangedMario += OnMarioChanged;
+            StageManager.instance.ChangedTime += OnTimeChanged;
             UpdateTexts();
 
         }
@@ -59,7 +61,10 @@ public class StageUISenter : MonoBehaviour
     {
         _TMPMario.text = mario.ToString();
     }
-
+    private void OnTimeChanged(int time)
+    {
+        _TMPTimer.text = time.ToString();
+    }
     // テキストを更新する
     private void UpdateTexts()
     {
