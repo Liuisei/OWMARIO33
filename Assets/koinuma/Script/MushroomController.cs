@@ -12,7 +12,7 @@ public class MushroomController : ItemBase
 
     public override void GetItem()
     {
-        Debug.Log("ƒLƒmƒR‚ğæ‚Á‚½");
+        GameObject.Find("Player").GetComponent<PlayerStateController>().GetMashroom();
     }
 
     private void Awake()
