@@ -31,13 +31,11 @@ public class DataManager : MonoBehaviour
     /// <summary>          スコアの値の+-                    </summary>///
 
     public void ChangeCoin(int value)    // コインの変更
-
     {
         _coin += value;
         ChangedCoin?.Invoke(_coin); // コイン変更イベントを発火
     }
     public void ChangeMario(int value)    // マリオの変更
-
     {
         _mario += value;
         ChangedMario?.Invoke(_mario); // マリオ変更イベントを発火
