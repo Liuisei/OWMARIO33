@@ -25,7 +25,7 @@ public class EnemyCuriboo : MonoBehaviour
         start += Vector2.right * _dirX * 0.509f;
         Vector2 end = start + Vector2.right * _dirX * 0.01f;
         Debug.DrawLine(start, end);
-        if (Physics2D.Linecast(start, end, 1) )
+        if (Physics2D.Linecast(start, end, 1))
         {
             _dirX *= -1;
         }
