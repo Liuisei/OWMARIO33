@@ -31,4 +31,12 @@ public class EnemyCuriboo : MonoBehaviour
         }
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.TryGetComponent<PlayerController>(out PlayerController pc))
+        {
+            Destroy(gameObject,1);
+        }
+    }
 }
