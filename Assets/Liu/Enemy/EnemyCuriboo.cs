@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class EnemyCuriboo : EnemyBase
 {
-    
+    public override void StapOn()
+    {
+        _stop = true;
+        Destroy(gameObject, 1);
+    }
 }

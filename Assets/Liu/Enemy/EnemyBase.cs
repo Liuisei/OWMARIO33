@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class EnemyBase : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = 2;
     Rigidbody2D _rb;
     int _dirX = 1;
-    bool _die;
+    bool _stop;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_die)
+        if (!_stop)
         {
             _rb.velocity = new Vector2(_moveSpeed * _dirX, _rb.velocity.y);
             Vector2 start = transform.position;
@@ -29,17 +30,26 @@ public abstract class EnemyBase : MonoBehaviour
             }
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.TryGetComponent<PlayerController>(out PlayerController pc))
         {
-            Destroy(gameObject, 1);
+            Destroy(gameObject);
             pc.Jump();
         }
     }
-    public virtual void StapOn()
+
+
+
+    public void StopMove()
     {
-        _die = true;
+        _stop = true;
     }
+    public void StartMOve()
+    {
+        _stop = false;
+    }
+
+    public abstract void StapOn();
+ 
 }
