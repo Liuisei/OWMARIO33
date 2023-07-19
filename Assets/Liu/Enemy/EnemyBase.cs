@@ -6,9 +6,9 @@ using UnityEngine;
 public abstract class EnemyBase : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = 2;
-    Rigidbody2D _rb;
+    public Rigidbody2D _rb;
     int _dirX = 1;
-    bool _stop;
+    public bool _stop;
 
     private void Start()
     {
@@ -34,21 +34,23 @@ public abstract class EnemyBase : MonoBehaviour
     {
         if (collision.transform.TryGetComponent<PlayerController>(out PlayerController pc))
         {
-            Destroy(gameObject);
+
+            StapOn();
             pc.Jump();
         }
     }
 
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.TryGetComponent<PlayerStateController>(out PlayerStateController PSC))
+        {
+            PSC.GiveDamage();
+        }
+    }
 
-    public void StopMove()
-    {
-        _stop = true;
-    }
-    public void StartMOve()
-    {
-        _stop = false;
-    }
+
+
 
     public abstract void StapOn();
  

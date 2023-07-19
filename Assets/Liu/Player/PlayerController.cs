@@ -31,7 +31,10 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        rb.AddForce(Vector2.up * jampSpeed, ForceMode2D.Impulse);
+
+
+        rb.velocity = new Vector2 ( 0,1*jampSpeed );
+        
     }
     private void FixedUpdate()
     {

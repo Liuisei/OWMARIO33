@@ -7,7 +7,6 @@ public class EnemyCuriboo : EnemyBase
 {
     public override void StapOn()
     {
-        _stop = true;
-        Destroy(gameObject, 1);
+        Destroy(gameObject);
     }
 }
