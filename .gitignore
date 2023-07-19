@@ -4,7 +4,6 @@
 #
 /[Ll]ibrary/
 /[Tt]emp/
-/[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
@@ -77,3 +76,4 @@ Assets/AssetStoreTools.meta
 Assets/Resources/
 *.meta
 Assets/TextMesh Pro/
+obj/

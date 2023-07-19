@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyNokonoko : EnemyBase
-{
-    [SerializeField] GameObject _koura;
- 
-    bool _iskoura = false;
+{ 
+    enum Nokonoko
+    {
+        nokonoko,
+        koura,
+    }
+
+    Nokonoko nokonokoenum = Nokonoko.nokonoko;
     public override void StapOn()
     {
-        _iskoura = true;
-        base.StapOn();
+        if(nokonokoenum == Nokonoko.nokonoko)
+        {
+            nokonokoenum = Nokonoko.koura;
+        }
+    }
+
+    public void SetKoura()
+    {
+        
     }
 }
