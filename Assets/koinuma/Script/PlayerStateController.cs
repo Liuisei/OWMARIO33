@@ -1,8 +1,10 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Camera))]
+[RequireComponent (typeof(SpriteRenderer))]
+[RequireComponent (typeof(CapsuleCollider2D))]
 public class PlayerStateController : MonoBehaviour
 {
+    [SerializeField] float _godModeTime = 1.5f;
     [SerializeField] Sprite _smallSprite;
     [SerializeField] Sprite _normalSprite;
     [SerializeField] Sprite _fireSprote;
@@ -11,6 +13,7 @@ public class PlayerStateController : MonoBehaviour
     State _playerState = State.Small;
     SpriteRenderer _sprite;
     CapsuleCollider2D _collider;
+    bool _isInvincibleTime = false;
 
     private void Start()
     {
@@ -46,21 +49,32 @@ public class PlayerStateController : MonoBehaviour
     /// <summary>ダメージを受けたとき</summary>
     public void GiveDamage()
     {
-        if (_playerState == State.Small) // ちびのとき
+        if (!_isInvincibleTime)
         {
-            // 死んだときのメソッドを呼び出す
+            if (_playerState == State.Small) // ちびのとき
+            {
+                // 死んだときのメソッドを呼び出す
+            }
+            else if (_playerState == State.Normal) // 通常のとき
+            {
+                _playerState = State.Small;
+                _sprite.sprite = _smallSprite;
+                _collider.size = _smallSize;
+            }
+            else // 能力状態のとき
+            {
+                _playerState = State.Normal;
+                _sprite.sprite = _normalSprite;
+            }
+            Invoke(nameof(CanDamage), _godModeTime);
+            _isInvincibleTime = true;
         }
-        else if (_playerState == State.Normal) // 通常のとき
-        {
-            _playerState = State.Small;
-            _sprite.sprite = _smallSprite;
-            _collider.size = _smallSize;
-        }
-        else // 能力状態のとき
-        {
-            _playerState = State.Normal;
-            _sprite.sprite = _normalSprite;
-        }
+    }
+
+    /// <summary>無敵時間のためにのメソッド</summary>
+    void CanDamage()
+    {
+        _isInvincibleTime = false;
     }
 
     enum State
