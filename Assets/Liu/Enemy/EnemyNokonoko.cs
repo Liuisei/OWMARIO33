@@ -8,8 +8,10 @@ public class EnemyNokonoko : EnemyBase
 
     public override void StapOn()
     {
-        Instantiate(koura,transform);
-        koura.transform.SetParent(null);
+        GameObject newkoura = Instantiate(koura,transform);
+        newkoura.transform.parent = null;
+        Debug.Log(newkoura);
+        Destroy(gameObject);
     }
 
 }
