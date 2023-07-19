@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
-
 [RequireComponent(typeof(Rigidbody2D))]
-public class EnemyCuriboo : MonoBehaviour
+public class EnemyNokonoko : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = 2;
     Rigidbody2D _rb;
     int _dirX = 1;
     bool _die;
-  
+
 
     private void Start()
     {
@@ -37,7 +35,7 @@ public class EnemyCuriboo : MonoBehaviour
     {
         if (collision.transform.TryGetComponent<PlayerController>(out PlayerController pc))
         {
-            Destroy(gameObject,1);
+            Destroy(gameObject, 1);
             _die = true;
             pc.Jump();
         }

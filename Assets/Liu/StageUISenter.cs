@@ -11,6 +11,8 @@ public class StageUISenter : MonoBehaviour
     [SerializeField] TextMeshProUGUI _TMPMario;
     [SerializeField] TextMeshProUGUI _TMPTimer;
 
+
+
     private void Start()
     {
         Rennkei();

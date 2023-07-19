@@ -24,8 +24,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && Ground())
         {
-            rb.AddForce(Vector2.up * jampSpeed , ForceMode2D.Impulse);
+            Jump();
         }
+    }
+
+
+    public void Jump()
+    {
+        rb.AddForce(Vector2.up * jampSpeed, ForceMode2D.Impulse);
     }
     private void FixedUpdate()
     {
