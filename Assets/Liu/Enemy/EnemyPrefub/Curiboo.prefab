@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 307829906033489666}
   - component: {fileID: 7915971749568496397}
   - component: {fileID: 5494131834127959991}
-  - component: {fileID: 6986918904392335100}
   - component: {fileID: 1258252060045655156}
+  - component: {fileID: 8479608221270532139}
   m_Layer: 0
   m_Name: Curiboo
   m_TagString: Untagged
@@ -150,19 +150,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
---- !u!114 &6986918904392335100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2651388781694897935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e11075f339c2035458c90c9f351921b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 2
 --- !u!61 &1258252060045655156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -208,3 +195,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.04}
   m_EdgeRadius: 0
+--- !u!114 &8479608221270532139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651388781694897935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9411ab5a351081a458c34355d409f8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 2
