@@ -16,7 +16,7 @@ public class StageGoal : MonoBehaviour
     {
         if (collision.TryGetComponent<PlayerController>(out PlayerController pc))
         {
-            
+            Debug.Log("goal");
         }
     }
 }
