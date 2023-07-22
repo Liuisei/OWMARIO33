@@ -71,10 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Packages/
 ProjectSettings/
-Assets/AssetStoreTools/
-Assets/AssetStoreTools.meta
-*.meta
-Assets/TextMeshPro/
+
+Assets/TextMesh Pro/
+Assets/Resources/
 obj/
-Assets/TextMesh Pro/Examples & Extras/Textures/Text Overflow - Linked Text Image 1.png
-Assets/
