@@ -24,8 +24,6 @@ public class StageManager : MonoBehaviour
     private void Update()
     {
         ChangeTime();
-
-
     }
 
 
@@ -48,17 +46,23 @@ public class StageManager : MonoBehaviour
 
     }
 
-
     // タイムを取得する
     public float GetTime()
     {
         return _time;
     }
-
-
     // タイムを停止するフラグを設定する
     public void SetTimeStop()
     {
         _timeStop = true;
     }
+
+
+    public void MarioGoal()
+    {
+        Debug.Log("goal!!!!!!!!");
+    }
+
+
+
 }

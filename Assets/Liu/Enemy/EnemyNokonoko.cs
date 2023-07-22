@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyNokonoko : EnemyBase
 {
     [SerializeField] GameObject koura;
-
+    [SerializeField] Transform kouratTransform;
     public override void StapOn()
     {
         GameObject newkoura = Instantiate(koura,transform);
