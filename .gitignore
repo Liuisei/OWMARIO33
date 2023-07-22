@@ -73,7 +73,6 @@ Packages/
 ProjectSettings/
 Assets/AssetStoreTools/
 Assets/AssetStoreTools.meta
-Assets/Resources/
 *.meta
 Assets/TextMeshPro/
 obj/
