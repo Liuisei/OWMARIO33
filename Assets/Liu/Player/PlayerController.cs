@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int moveSpeed = 10;
     [SerializeField] float raycastRenge = 1.1f;
 
+    bool playerControol = true;
 
 
 
@@ -22,33 +23,36 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump") && Ground())
+        if (playerControol)
         {
-            Jump();
+            if (Input.GetButtonDown("Jump") && Ground())
+            {
+                Jump();
+            }
         }
+ 
     }
 
 
     public void Jump()
     {
-
-
         rb.velocity = new Vector2 ( 0,1*jampSpeed );
-        
     }
     private void FixedUpdate()
     {
-    
-        float h = Input.GetAxisRaw("Horizontal"); // 水平方向の入力を検出する
-
-        // 入力に応じてパドルを水平方向に動かす
-        rb.AddForce(new Vector2(h * moveSpeed, 0),ForceMode2D.Force);
-
- 
-
-        if(h !=0)
+        if (playerControol)
         {
-            this.transform.localScale = new Vector3(h, 1, 1);
+            float h = Input.GetAxisRaw("Horizontal"); // 水平方向の入力を検出する
+
+            // 入力に応じてパドルを水平方向に動かす
+            rb.AddForce(new Vector2(h * moveSpeed, 0), ForceMode2D.Force);
+
+
+
+            if (h != 0)
+            {
+                this.transform.localScale = new Vector3(h, 1, 1);
+            }
         }
         
         
