@@ -43,7 +43,16 @@ public class PlayerController : MonoBehaviour
 
         // “ü—Í‚É‰‚¶‚Äƒpƒhƒ‹‚ğ…•½•ûŒü‚É“®‚©‚·
         rb.AddForce(new Vector2(h * moveSpeed, 0),ForceMode2D.Force);
-         
+
+ 
+
+        if(h !=0)
+        {
+            this.transform.localScale = new Vector3(h, 1, 1);
+        }
+        
+        
+
     }
     bool Ground()
     {
