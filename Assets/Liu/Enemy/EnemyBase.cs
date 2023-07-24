@@ -29,6 +29,10 @@ public abstract class EnemyBase : MonoBehaviour
                 _dirX *= -1;
             }
         }
+        if (_dirX != 0)
+        {
+            this.transform.localScale = new Vector3(_dirX*-1, 1, 1);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
