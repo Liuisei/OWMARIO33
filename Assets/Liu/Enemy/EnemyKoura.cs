@@ -16,4 +16,22 @@ public class EnemyKoura : EnemyBase
             _stop = false;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GiveDamage(collision);
+
+    }
+    public void GiveDamage(Collision2D collision)
+    {
+        if (!_stop)
+        {
+            if (collision.transform.TryGetComponent<EnemyBase>(out EnemyBase enemyBase))
+            {
+                enemyBase.GetDamage();
+                Debug.Log(name + collision + "godamege");
+            }
+        }
+
+    }
 }
