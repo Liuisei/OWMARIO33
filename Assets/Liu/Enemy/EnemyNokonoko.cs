@@ -13,5 +13,4 @@ public class EnemyNokonoko : EnemyBase
         Debug.Log(newkoura);
         Destroy(gameObject);
     }
-
 }

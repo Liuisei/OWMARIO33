@@ -210,3 +210,5 @@ MonoBehaviour:
   _moveSpeed: 2
   _rb: {fileID: 0}
   _stop: 0
+  curibooStapOn: {fileID: 7129915457207549668, guid: 29132becc51b28e48ad8fce029ad2271, type: 3}
+  curibooGetDamage: {fileID: 0}

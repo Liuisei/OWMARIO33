@@ -54,6 +54,17 @@ public abstract class EnemyBase : MonoBehaviour
     }
 
 
+    public virtual void GetDamage()
+    {
+        Collider2D[] Colliders = GetComponents<Collider2D>();
+
+        foreach (Collider2D col in Colliders)
+        {
+            Destroy(col);
+        }
+        _rb.AddForce(transform.up * 100);
+        Destroy(gameObject, 3);
+    }
 
 
     public abstract void StapOn();
