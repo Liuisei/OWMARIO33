@@ -3,14 +3,13 @@ using UnityEngine;
 public class FireBallController : MonoBehaviour
 {
     [SerializeField] float _speed = 10;
-    [SerializeField] Transform _player;
     float bounsPower = 8;
     Rigidbody2D _rb;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _speed *= Mathf.Sign(_player.rotation.x); 
+        _speed *= Mathf.Sign(GameObject.Find("Player").transform.localScale.x); 
     }
 
     private void Update()

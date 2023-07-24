@@ -8,6 +8,8 @@ public class PlayerStateController : MonoBehaviour
     [SerializeField] Sprite _smallSprite;
     [SerializeField] Sprite _normalSprite;
     [SerializeField] Sprite _fireSprote;
+    [SerializeField] GameObject _fireBall;
+    [SerializeField] Transform _handTransform;
     Vector2 _smallSize = new Vector2(1, 1);
     Vector2 _nomalSize = new Vector2(1, 2);
     State _playerState = State.Small;
@@ -22,6 +24,14 @@ public class PlayerStateController : MonoBehaviour
         _sprite.sprite = _smallSprite;
         _collider.size = new Vector2(1, 1);
 
+    }
+
+    private void Update()
+    {
+        if (_playerState == State.Fire && Input.GetButtonDown("Fire2"))
+        {
+            Instantiate(_fireBall).transform.position = _handTransform.position;
+        }
     }
 
     public void GetMashroom()
